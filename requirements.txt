@@ -3,3 +3,4 @@ django-widget_tweaks
 python-memcached
 pandas
 django-rest_framework
+braintree
