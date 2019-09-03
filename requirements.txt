@@ -1,4 +1,5 @@
 django
-django-wdiget_tweaks
+django-widget_tweaks
 python-memcached
 pandas
+django-rest_framework
