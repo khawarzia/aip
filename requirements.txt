@@ -1,0 +1,4 @@
+django
+django-wdiget_tweaks
+python-memcached
+pandas
