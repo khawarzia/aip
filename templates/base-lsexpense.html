@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block title %} LumpSum Expense Detail {% endblock %}
+{% block body %}
+<ul class="step-progressbar">
+    <li class="step-progressbar__item">Step 1</li>
+    <li class="step-progressbar__item">Step 2</li>
+    <li class="step-progressbar__item">Step 3</li>
+    <li class="step-progressbar__item">Step 4</li>
+    <li class="step-progressbar__item step-progressbar__item--active">Step 5</li>
+    <li class="step-progressbar__item">Step 6</li>
+</ul>
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Edit Information</h4>
+        </div>
+        <div class="modal-body">
+            <form action="{% url 'edit' 4 %}" class="text-center border border-light p-5" method="POST" style="background:white ">{% csrf_token %}
+                <input required="" type="text" name = "Description" class="form-control mb-4" placeholder="Type of Expense">
+                <input required="" type="float" name = "Amount" class="form-control mb-4" placeholder="Amount">
+                <input required="" type="text" name = "When_Expended" class="form-control mb-4" placeholder="Expended on (yyyy-mm-dd)">
+                <input id="hiddenbutton" type="text" name="slug" style="visibility: hidden" value="">
+                <button class="btn btn-info btn-block my-4" type="submit">Save</button>
+              </form>          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+
+{% if data %}
+<table class="table table-striped">
+  <tr>
+    <td>Type</td>
+    <td>Amount</td>
+    <td>Expended On</td>
+    <td>Action</td>
+  </tr>
+  {% for i in data %}
+  <tr>
+    <td>{{i.0}}</td>
+    <td>{{i.1}}</td>
+    <td>{{i.2}}</td>
+    <td><a href="{% url 'delete' 4 i.3 %}">delete</a>/<button id="hidden" style="background-color: transparent; border:none;" onclick=add() value="{{i.3}}" data-toggle="modal" href="#myModal">edit</button></td>
+  </tr>
+  {% endfor %}
+</table>
+{% endif %}
+
+<form class="text-center border border-light p-5" method="POST" style="background:white ">{% csrf_token %}
+      
+    <h5 class="card-header  text-center py-4" style="background:rgba(241, 238, 238, 0.924)">LumpSum Expense</h5><br><br>
+  <br>
+
+    <input required="" type="text" name = "Description" class="form-control mb-4" placeholder="Type of Expense">
+    <input required="" type="float" name = "Amount" class="form-control mb-4" placeholder="Amount">
+    <input required="" type="text" name = "When_Expended" class="form-control mb-4" placeholder="Expended on (yyyy-mm-dd)">
+
+    <!-- Sign in button -->
+    <div class="row">
+    <div class="col-md-12">
+    <button class="btn btn-info btn-block my-4" type="submit">Save</button></div>
+  </form>
+
+
+{% endblock %}

@@ -1,0 +1,254 @@
+<!-- ftco-animate class ko is main maine already remove ker dia hai 127.0.0.1:8000/2 per is class k sath hai index.html-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AIP - Avoid Interest Payments</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animsition/4.0.2/css/animsition.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="static/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/animate.css">
+    
+    <link rel="stylesheet" href="static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="static/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="static/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="static/css/aos.css">
+
+    <link rel="stylesheet" href="static/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="static/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="static/css/jquery.timepicker.css">
+
+    
+    <link rel="stylesheet" href="static/css/flaticon.css">
+    <link rel="stylesheet" href="static/css/icomoon.css">
+    <link rel="stylesheet" href="static/css/style.css">
+  </head>
+  <body>
+	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="{% url 'main' %}">AIP<span>.</span></a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	        	<li class="nav-item active"><a href="{% url 'main' %}" class="nav-link">Home</a></li>
+	        	<li class="nav-item"><a href="{% url 'about' %}" class="nav-link">About</a></li>
+	        	<li class="nav-item"><a href="{% url 'pricing' %}" class="nav-link">Pricing</a></li>
+            <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
+            <li class="nav-item"><a href="{% url 'login' %}" class="nav-link">Log in</a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
+    
+    <div class="hero-wrap" style="background-image: url('static/images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
+          <div class="col-md-6 order-md-last ftco-animate mt-5" data-scrollax=" properties: { translateY: '70%' }">
+            <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Avoid Interest Payments</h1>
+            <p><a href="{% url 'signup' %}" class="btn btn-black py-3 px-4">Join Us!</a></p>
+          </div>
+          <div class="col-md-6 d-none d-md-block">
+          	<div class="play-video pb-5 d-flex align-items-center">
+          		<p><a href="https://vimeo.com/45830194" class="popup-vimeo"><span class="icon"><i class="ion-ios-play "></i></span> <span class="play">Play video</span></a></p>
+          	</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="ftco-section ftco-no-pt ftco-no-pb ftco-volunteer">
+    	<div class="container">
+    		<div class="row">
+    			<div class="col-md-7 img-volunteer" style="background-image: url(static/images/about.jpg);">
+    				<div class="row no-gutters justify-content-end">
+    					<div class="col-lg-7">
+    						<div class="text py-5 pl-md-4 pr-md-3">
+    							<h2 class="mb-4">Learn how to eliminate interest payments.</h2>
+    							<p>Learn how to eliminate interest payments and pay off any debts with this sophisticated  and robust tool.</p>
+    						</div>
+    					</div>
+    				</div>
+    			</div>
+    			<div class="col-md-5 d-flex align-items-center bg-black">
+    				<div class="about-text py-5 pl-md-5">
+    					<h2>Manage your Expenses</h2>
+    					<p>Input your data to see your financial and time savings. The only financial tool you need to manage your expenses while saving on all your expenses.</p>
+    					<p><a href="{% url 'signup' %}" class="btn btn-black py-3 px-4">Join now</a></p>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </section>
+
+
+    <section class="ftco-section ftco-causes">
+    	<div class="container">
+    		<div class="row justify-content-center pb-3">
+          <div class="col-md-10 heading-section text-center">
+            <h2 class="mb-4">Simple Steps to use our software</h2>
+            <p>We allow you to input your information and use the tool for 3 months FREE. You will be amazed with how intuitive the tool is. After the free period, you will be charged $29.99 monthly until you cancel your subscription.Make AIP a way of life and eliminate those excel sheets to help manage your finances.</p>
+            <p>Fill out below to see how much you could save using our system.</p>
+    	</div>
+    	<div class="container">
+        <div class="row">
+        	<div class="col-md-12">
+              <form method="POST"> {% csrf_token %}
+                  <div class="form-group">
+                    <label for="id_mort">Current Mortgage Payment</label>
+                    <input type="number" name="Monthly_installment" id="id_mort" class="form-control" placeholder="1.0" step="0.01">
+                    <small class="form-text text-muted">Principal and Interest Only</small>
+                  </div>
+                  <div class="form-group">
+                      <label for="id_montinst">Mortgage Balance</label>
+                      <input type="number" name="Mortgage_owed" id="id_montinst" class="form-control" placeholder="1.0" step="0.01">
+                    </div>
+                    <div class="form-group">
+                        <label for="id_intr">Interest Rate</label>
+                        <input type="number" name="Interest_rate" id="id_intr" class="form-control" placeholder="1.0" step="0.00001">
+                      </div>
+                      <div class="form-group">
+                          <label for="id_moninc">Total Monthly Income</label>
+                          <input type="number" name="Monthly_income" id="id_moninc" class="form-control" placeholder="1.0" step="0.01">
+                        </div>
+                        <div class="form-group">
+                            <label for="id_monexp">Total Monthly Expense</label>
+                            <input type="number" name="Monthly_expenses" id="id_monexp" class="form-control" placeholder="1.0" step="0.01">
+                          </div>
+                          <div class="form-group">
+                              <label for="id_debt">Total Debt Payments</label>
+                              <input type="number" name="Current_debt" id="id_debt" class="form-control" placeholder="1.0" step="0.01">
+                            </div>
+                            <div class="form-group">
+                              <label for="id_loan">Loan Period</label>
+                              <input type="number" name="Loan_period" id="id_loan" class="form-control" placeholder="1">
+                              </div>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                {% if check %}
+                  {{message}}
+                {% endif %}
+        	</div>
+        </div>
+    	</div>
+    </section>
+    
+    <table class="table table-borderless table-striped table-earning">
+        <thead>
+          {% for i,j in a %}
+            <tr>
+                
+                <th>{{i}}</th>
+                
+              </tr>
+        </thead>
+        <tbody>
+            <tr>
+                
+                <td>{{j}}</td>
+                
+              </tr>
+              {% endfor %}
+        </tbody>
+    </table> 
+    
+    <hr>
+    
+    <table class="table table-borderless table-striped table-earning">
+       <thead>
+         {% for i,j in b %}
+           <tr>
+    
+               <th>{{i}}</th>
+               <th>{{j.0}}</th>
+               <th>{{j.1}}</th>
+               <th>{{j.2}}</th>
+
+            </tr>
+       </thead>
+       <tbody>
+           {% endfor %}
+       </tbody>
+   </table> 
+
+    <footer class="ftco-footer ftco-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">AIP.</h2>
+              <p>Avoid Interest Payments</p>
+              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                <li ><a href="#"><span class="icon-twitter"></span></a></li>
+                <li ><a href="#"><span class="icon-facebook"></span></a></li>
+                <li ><a href="#"><span class="icon-instagram"></span></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+             <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Links</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="py-2 d-block">Home</a></li>
+                <li><a href="#" class="py-2 d-block">About</a></li>
+                <li><a href="#" class="py-2 d-block">Pricing</a></li>
+                <li><a href="#" class="py-2 d-block">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+            	<h2 class="ftco-heading-2">Have a Questions?</h2>
+            	<div class="block-23 mb-3">
+	              <ul>
+	                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
+	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
+	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+	              </ul>
+	            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+  
+
+  <!-- loader >
+  <div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+      <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+      <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/>
+    </svg>
+  </div-->
+
+
+  <script src="static/js/jquery.min.js"></script>
+  <script src="static/js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="static/js/popper.min.js"></script>
+  <script src="static/js/bootstrap.min.js"></script>
+  <script src="static/js/jquery.easing.1.3.js"></script>
+  <script src="static/js/jquery.waypoints.min.js"></script>
+  <script src="static/js/jquery.stellar.min.js"></script>
+  <script src="static/js/owl.carousel.min.js"></script>
+  <script src="static/js/jquery.magnific-popup.min.js"></script>
+  <script src="static/js/aos.js"></script>
+  <script src="static/js/jquery.animateNumber.min.js"></script>
+  <script src="static/js/scrollax.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="static/js/google-map.js"></script>
+  <script src="static/js/main.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/animsition/4.0.2/js/animsition.min.js"></script>  
+
+  </body>
+</html>

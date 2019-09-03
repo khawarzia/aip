@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block title %} Property Detail {% endblock %}
+{% block body %}
+<ul class="step-progressbar">
+    <li class="step-progressbar__item step-progressbar__item--active">Step 1</li>
+    <li class="step-progressbar__item">Step 2</li>
+    <li class="step-progressbar__item">Step 3</li>
+    <li class="step-progressbar__item">Step 4</li>
+    <li class="step-progressbar__item">Step 5</li>
+    <li class="step-progressbar__item">Step 6</li>
+</ul>
+
+{% if a %}
+<table class="table table-striped">
+  {% for i in data %}
+  <tr>
+    <td>{{i.0}}</td>
+    <td>{{i.1}}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endif %}
+
+<form class="text-center border border-light p-5" method="POST" style="background:white ">{% csrf_token %}
+      
+    <h5 class="card-header  text-center py-4" style="background:rgba(241, 238, 238, 0.924)">Primary Property</h5><br>
+    <h6 class="card-header  text-center py-4" style="background:rgba(241, 238, 238, 0.924)">*Entering new details will over-ride the previous ones</h6>
+    <br>
+  <br>
+
+    <input type="float" required="" name = "Property_Value" class="form-control mb-4" placeholder="Property Value">
+  
+    <label>Start month</label>
+    <select name="Start_Month_of_Tool" class="browser-default custom-select mb-4">
+        <option value="January" selected>January</option>
+        <option value="February">February</option>
+        <option value="March">March</option>
+        <option value="April">April</option>
+        <option value="May">May</option>
+        <option value="June">June</option>
+        <option value="July">July</option>
+        <option value="August">August</option>
+        <option value="September">September</option>
+        <option value="October">October</option>
+        <option value="November">November</option>
+        <option value="December">December</option></select>
+  
+        <label>Start Year</label>
+   <select name="Start_Year_of_Tool" class="browser-default custom-select mb-4">
+          <option value="2019" selected>2019</option>
+          <option value="2018">2018</option>
+          <option value="2017">2017</option></select>
+    
+          <input required="" type="float" name="Amount_Owed_As_of_Start_of_Tool" class="form-control mb-4" placeholder="Amount Owed">
+    
+          <input required="" type="float" name="Current_Payment_for_Loan" class="form-control mb-4" placeholder="Current Payment">
+  
+    <label>Frequency of payment</label>
+    <select name="Frequency_of_Payment" class="browser-default custom-select mb-4">
+      <option value="Monthly" selected>Monthly</option>
+      <option value="Yearly">Yearly</option>
+      <option value="One Time">One-Time</option></select>
+   
+      <input required="" type="float" name="Current_Interest_rate" class="form-control mb-4" placeholder="Interest Rate">
+        
+      <h3>Put 0 if you dont want to use HELOC</h3>
+         <br>
+         <input required="" type="float" name="CURRENT_OWED_ON_HELOC" class="form-control mb-4" placeholder="Current amount owed on your HELOC">
+         <input required="" type="float" name="PROJECTED_INJECTION_TO_MORTGAGE" class="form-control mb-4" placeholder="Amount you will INITIALLY inject into your Primary Loan from your HELOC:">
+         
+         
+         <input required="" type="float" name="RECURRING_INJECTION_AFTER_HELOC_REACHES_ZERO" class="form-control mb-4" placeholder="Amount you will inject on a RECURRING basis when your HELOC balance reaches $0.00:">
+         
+            
+             <input required="" type="float" name="APPROVED_AMOUNT" class="form-control mb-4" placeholder="HELOC Credit Limit Approved">
+           
+           
+             <input required="" type="float" name="HELOC_INITIAL_INTEREST_RATE" class="form-control mb-4" placeholder="Interest Rate for this HELOC:">
+
+  
+    <!-- Sign in button -->
+    <div class="row">
+    <div class="col-md-12">
+    <button class="btn btn-info btn-block my-4" type="submit">Save</button></div>
+  </form>
+
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %} Summary {% endblock %}
+{% block body %}
+{% if check %}
+{{message}}
+{% else %}
+{% if select == 1 %}
+{{cfs}}
+{% elif select == 2 %}
+{{yb}}
+{% elif select == 3 %}
+{{ltc}}
+{% endif %}
+{% endif %}
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% block title %} Current Debt Detail {% endblock %}
+{% block body %}
+<ul class="step-progressbar">
+    <li class="step-progressbar__item">Step 1</li>
+    <li class="step-progressbar__item step-progressbar__item--active">Step 2</li>
+    <li class="step-progressbar__item">Step 3</li>
+    <li class="step-progressbar__item">Step 4</li>
+    <li class="step-progressbar__item">Step 5</li>
+    <li class="step-progressbar__item">Step 6</li>
+</ul>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Edit Information</h4>
+      </div>
+      <div class="modal-body">
+          <form action="{% url 'edit' 1 %}" class="text-center border border-light p-5" method="POST" style="background:white ">{% csrf_token %}
+              <input required="" type="text" name = "Type" class="form-control mb-4" placeholder="Type of Loan">
+              <input required="" type="float" name = "Owed" class="form-control mb-4" placeholder="Amount Owed">
+              <input required="" type="text" name = "As_Of" class="form-control mb-4" placeholder="Owed As of (yyyy-mm-dd)">
+              <input required="" type="float" name = "Payment" class="form-control mb-4" placeholder="Payment">
+              <input required="" type="float" name = "Rate" class="form-control mb-4" placeholder="Rate">
+              <input id="hiddenbutton" type="text" name="slug" style="visibility: hidden" value="">
+              <button class="btn btn-info btn-block my-4" type="submit">Save</button>
+            </form>          
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% if data %}
+<table class="table table-striped">
+  <tr>
+    <td>Type</td>
+    <td>Amount</td>
+    <td>Owed As Of</td>
+    <td>Payment</td>
+    <td>Rate</td>
+    <td>Action</td>
+  </tr>
+  {% for i in data %}
+  <tr>
+    <td>{{i.0}}</td>
+    <td>{{i.1}}</td>
+    <td>{{i.2}}</td>
+    <td>{{i.3}}</td>
+    <td>{{i.4}}</td>
+    <td><a href="{% url 'delete' 1 i.5 %}">delete</a>/<button id="hidden" style="background-color: transparent; border:none;" onclick=add() value="{{i.5}}" data-toggle="modal" href="#myModal">edit</button></td>
+  </tr>
+  {% endfor %}
+</table>
+{% endif %}
+
+<form class="text-center border border-light p-5" method="POST" style="background:white ">{% csrf_token %}
+      
+    <h5 class="card-header  text-center py-4" style="background:rgba(241, 238, 238, 0.924)">Current Debt</h5><br><br>
+  <br>
+
+    <input required="" type="text" name = "Type" class="form-control mb-4" placeholder="Type of Loan">
+    <input required="" type="float" name = "Owed" class="form-control mb-4" placeholder="Amount Owed">
+    <input required="" type="text" name = "As_Of" class="form-control mb-4" placeholder="Owed As of (yyyy-mm-dd)">
+    <input required="" type="float" name = "Payment" class="form-control mb-4" placeholder="Payment">
+    <input required="" type="float" name = "Rate" class="form-control mb-4" placeholder="Rate">
+  
+    <!-- Sign in button -->
+    <div class="row">
+    <div class="col-md-12">
+    <button class="btn btn-info btn-block my-4" type="submit">Save</button></div>
+  </form>
+
+
+{% endblock %}

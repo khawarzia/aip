@@ -1,0 +1,49 @@
+{% extends 'login.html' %}
+{% block title %} Signup {% endblock %}
+{% block body %}
+<form class="login100-form validate-form" method="POST"> {% csrf_token %}
+    <span class="login100-form-title p-b-70">
+      Register
+    </span>
+    <span class="login100-form-avatar">
+      <img src="static/images/avatar-01.jpg" alt="AVATAR">
+    </span>
+
+    <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter First Name">
+        <input class="input100" type="text" name="first_name" required="">
+        <span class="focus-input100" data-placeholder="First Name"></span>
+      </div>
+
+    <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter Second Name">
+      <input class="input100" type="text" name="last_name"required="">
+      <span class="focus-input100" data-placeholder="Second Name"></span>
+    </div>
+
+    <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter Username">
+        <input class="input100" type="text" name="username"required="">
+        <span class="focus-input100" data-placeholder="Username"></span>
+      </div>
+
+    <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter E-mail">
+      <input class="input100" type="text" name="email"required="">
+      <span class="focus-input100" data-placeholder="E-mail"></span>
+    </div>
+
+    <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter Password">
+      <input class="input100" type="password" name="password"required="">
+      <span class="focus-input100" data-placeholder="Password"></span>
+    </div>
+
+    <label>Select Package</label>
+    <select name="package" class="browser-default custom-select mb-4">
+      <option value="Starter   Free" selected>Starter   Free</option>
+      <option value="Gold   $29.99">Gold   $29.99</option>
+      <option value="Platinum   $299.99">Platinum   $299.99</option></select>
+
+    <div class="container-login100-form-btn">
+      <button class="login100-form-btn">
+        Register
+      </button>
+    </div>
+  </form>
+  {% endblock %}
