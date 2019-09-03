@@ -5,11 +5,61 @@
 {{message}}
 {% else %}
 {% if select == 1 %}
-{{cfs}}
+{% for i,j in cfs %}
+{{i}}
+<table class="table table-borderless table-striped table-earning">
+        <thead>
+          
+            <tr>
+                {% for k,l in j.items %}
+                <th>{{k}}</th>
+                
+              </tr>
+        </thead>
+        <tbody>
+            <tr>
+                
+                <td>{{l}}</td>
+                {% endfor %}
+              </tr>
+              
+        </tbody>
+    </table> 
+    {% endfor %}
 {% elif select == 2 %}
-{{yb}}
+<table class="table table-borderless table-striped table-earning">
+    <thead>
+      {% for i,j in yb %}
+        <tr>
+ 
+            <th>{{i}}</th>
+            <th>{{j.0}}</th>
+            <th>{{j.1}}</th>
+            <th>{{j.2}}</th>
+
+         </tr>
+    </thead>
+    <tbody>
+        {% endfor %}
+    </tbody>
+</table>
 {% elif select == 3 %}
-{{ltc}}
+<table class="table table-borderless table-striped table-earning">
+    <thead>
+      {% for i,j in ltc %}
+        <tr>
+ 
+            <th>{{i}}</th>
+            <th>{{j.0}}</th>
+            <th>{{j.1}}</th>
+            <th>{{j.2}}</th>
+
+         </tr>
+    </thead>
+    <tbody>
+        {% endfor %}
+    </tbody>
+</table>
 {% endif %}
 {% endif %}
 {% endblock %}
