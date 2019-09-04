@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 {% block title %} Dashboard {% endblock %}
 {% block body %}
-
+<a href="{% url 'logout' %}">Logout </a><br>
+<hr>
+<a href="{% url 'chats' %}">Go To Chatroom</a>
+<hr>
 {% endblock %}
