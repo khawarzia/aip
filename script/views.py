@@ -14,20 +14,19 @@ from django.contrib.auth.decorators import login_required
 def work(request):
     print (request)
     template = 'index.html'
-    form = entry(request.POST)
-    if form.is_valid():
+    if request.method == "POST":
         # Inputs
         endDatePrimaryLoanusingTool = None
-        originalprincipal = float(form.cleaned_data['Mortgage_owed'])
-        interestrate = float(form.cleaned_data['Interest_rate'])/100
-        monthlyinstallment = float(form.cleaned_data['Monthly_installment'])
-        Income = float(form.cleaned_data['Monthly_income'])
-        Expense = float(form.cleaned_data['Monthly_expenses'])
-        CurrentDebtExpenses = float(form.cleaned_data['Current_debt'])
-        Loanperiod = int(form.cleaned_data['Loan_period'])
+        originalprincipal = float(request.POST['Mortgage_owed'])
+        interestrate = float(request.POST['Interest_rate'])
+        monthlyinstallment = float(request.POST['Monthly_installment'])
+        Income = float(request.POST['Monthly_income'])
+        Expense = float(request.POST['Monthly_expenses'])
+        CurrentDebtExpenses = float(request.POST['Current_debt'])
+        Loanperiod = int(request.POST['Loan_period'])
         
-        CashFlowSummary = type(pd.read_csv("~/aip/aip/templates/OutputFormat.csv"))
-        print (CashFlowSummary)
+        CashFlowSummary = pd.read_csv("~/aip/aip/templates/OutputFormat.csv")
+ 
         CashFlowSummary.set_index('P&I & HELOC Details', inplace=True)
         LoanTermComparison = pd.DataFrame(columns=['Loan Type', 'Value', 'Years', 'Months', 'Interest Cost'])
         
