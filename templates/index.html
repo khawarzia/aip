@@ -105,32 +105,32 @@
               <form method="POST"> {% csrf_token %}
                   <div class="form-group">
                     <label for="id_mort">Current Mortgage Payment</label>
-                    <input type="number" name="Monthly_installment" id="id_mort" class="form-control" placeholder="1.0" step="0.01">
+                    <input required="" type="number" name="Monthly_installment" id="id_mort" class="form-control" placeholder="1.0" step="0.01">
                     <small class="form-text text-muted">Principal and Interest Only</small>
                   </div>
                   <div class="form-group">
                       <label for="id_montinst">Mortgage Balance</label>
-                      <input type="number" name="Mortgage_owed" id="id_montinst" class="form-control" placeholder="1.0" step="0.01">
+                      <input required="" type="number" name="Mortgage_owed" id="id_montinst" class="form-control" placeholder="1.0" step="0.01">
                     </div>
                     <div class="form-group">
                         <label for="id_intr">Interest Rate</label>
-                        <input type="number" name="Interest_rate" id="id_intr" class="form-control" placeholder="1.0" step="0.00001">
+                        <input required="" type="number" name="Interest_rate" id="id_intr" class="form-control" placeholder="1.0" step="0.00001">
                       </div>
                       <div class="form-group">
                           <label for="id_moninc">Total Monthly Income</label>
-                          <input type="number" name="Monthly_income" id="id_moninc" class="form-control" placeholder="1.0" step="0.01">
+                          <input required="" type="number" name="Monthly_income" id="id_moninc" class="form-control" placeholder="1.0" step="0.01">
                         </div>
                         <div class="form-group">
                             <label for="id_monexp">Total Monthly Expense</label>
-                            <input type="number" name="Monthly_expenses" id="id_monexp" class="form-control" placeholder="1.0" step="0.01">
+                            <input required="" type="number" name="Monthly_expenses" id="id_monexp" class="form-control" placeholder="1.0" step="0.01">
                           </div>
                           <div class="form-group">
                               <label for="id_debt">Total Debt Payments</label>
-                              <input type="number" name="Current_debt" id="id_debt" class="form-control" placeholder="1.0" step="0.01">
+                              <input required="" type="number" name="Current_debt" id="id_debt" class="form-control" placeholder="1.0" step="0.01">
                             </div>
                             <div class="form-group">
                               <label for="id_loan">Loan Period</label>
-                              <input type="number" name="Loan_period" id="id_loan" class="form-control" placeholder="1">
+                              <input required="" type="number" name="Loan_period" id="id_loan" class="form-control" placeholder="1">
                               </div>
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
