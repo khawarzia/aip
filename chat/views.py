@@ -7,7 +7,9 @@ from rest_framework.parsers import JSONParser
 from chat.models import Message, UserProfile
 from chat.serializers import MessageSerializer, UserSerializer
 from login.models import infor
+from django.contrib.auth.decorators import login_required
 
+@login_required(login_url='/loggin')
 @csrf_exempt
 def user_list(request, pk=None):
     """
@@ -30,7 +32,7 @@ def user_list(request, pk=None):
         except Exception:
             return JsonResponse({'error': "Something went wrong"}, status=400)
 
-
+@login_required(login_url='/loggin')
 @csrf_exempt
 def message_list(request, sender=None, receiver=None):
     """
@@ -53,6 +55,7 @@ def message_list(request, sender=None, receiver=None):
             return JsonResponse(serializer.data, status=201)
         return JsonResponse(serializer.errors, status=400)
 
+@login_required(login_url='/loggin')
 def chat_view(request):
     a = infor.objects.get(user=request.user)
     if a.started == False or a.price < 1:
@@ -62,6 +65,7 @@ def chat_view(request):
                       {'users': User.objects.exclude(username=request.user.username)})
 
 
+@login_required(login_url='/loggin')
 def message_view(request, sender, receiver):
     if request.method == "GET":
         return render(request, "chat/messages.html",
