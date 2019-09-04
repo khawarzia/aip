@@ -54,7 +54,7 @@ def message_list(request, sender=None, receiver=None):
         return JsonResponse(serializer.errors, status=400)
 
 def chat_view(request):
-    a = infor.objects.get(name=request.user.username)
+    a = infor.objects.get(user=request.user)
     if a.started == False or a.price < 1:
         return redirect('/dashboard')
     if request.method == "GET":
