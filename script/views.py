@@ -207,10 +207,10 @@ def work(request):
                 ltc[i].append(l)
         print (a)
 
-        context1 = {'form':form,'a':cfs.items(),'b':ltc.items(),'check':False,'message':''}
+        context1 = {'a':cfs.items(),'b':ltc.items(),'check':False,'message':''}
         form = entry()
         return render(request,template,context1)
-    context = {'form':form,'check':False,'message':''}
+    context = {'check':False,'message':''}
     return render(request,template,context)
 
 def about(request):
