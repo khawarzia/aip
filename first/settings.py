@@ -27,7 +27,7 @@ SECRET_KEY = 'w-db3#nvjoo9xuxkva5b@o%7&)6@m@!a1$h4twkfjwe_$wgh59'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','157.230.208.50']
+ALLOWED_HOSTS = ['127.0.0.1','134.209.120.1']
 
 DATE_INPUT_FORMATS = ["%m-%d-%Y"]
 
